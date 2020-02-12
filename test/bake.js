@@ -1,6 +1,7 @@
 import request from "supertest";
 import app from "../app";
 
+
 describe("GET /bake", function() {
     it("doesnt exist", function(done) {
         request(app)
@@ -103,6 +104,21 @@ describe("POST /bake", function() {
             ]})
             .expect(200)
             .expect("begin_something_anananaaaaak_da_aaak_da_aaaaananaaaaaaan_da_aaaaaaanan_da_aaak_end_something", done);
+    });
+
+    it("should perform MAGIC", (done) => {
+        request(app)
+            .post("/bake")
+            .set("Content-Type", "application/json")
+            .send({
+                input: "You're a wizard, Harry.",
+                recipe: [
+                    "To Hex",
+                    "Magic"
+                ]
+            })
+            .expect(200)
+            .expect("something", done);
     });
 
 });
