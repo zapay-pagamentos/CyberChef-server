@@ -4,4 +4,4 @@ services:
     build: .
     restart: always
     ports:
-      - 8085:3000
+      - 3050:3050
